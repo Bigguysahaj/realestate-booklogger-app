@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Logger — Dashboard</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --ink: #1c2430; --muted: #66707d;
+    --line: #e3e6ea; --accent: #1f4e8c; --accent-ink: #ffffff; --danger: #b3261e;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+         background: var(--bg); color: var(--ink); }
+  header { display: flex; align-items: center; gap: 12px; padding: 14px 24px;
+           background: var(--card); border-bottom: 1px solid var(--line); }
+  header h1 { font-size: 17px; margin: 0; flex: 1; }
+  main { padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+  button { font: inherit; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--line);
+           background: var(--card); color: var(--ink); cursor: pointer; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  button:hover { filter: brightness(0.96); }
+  input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--line);
+                  border-radius: 8px; background: var(--card); color: var(--ink); }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: end; }
+  .filters label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+  .count { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .tablewrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line);
+               border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line);
+           white-space: nowrap; max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+  th { position: sticky; top: 0; background: var(--card); font-weight: 600; font-size: 12.5px;
+       color: var(--muted); text-transform: uppercase; letter-spacing: .03em; cursor: pointer; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #f0f4fa; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px;
+          background: #e8eef7; color: var(--accent); }
+  .noconsent { color: var(--muted); font-style: italic; }
+  /* login */
+  #login { max-width: 360px; margin: 12vh auto; background: var(--card); padding: 28px;
+           border-radius: 12px; border: 1px solid var(--line); display: flex;
+           flex-direction: column; gap: 12px; }
+  #login h2 { margin: 0 0 4px; font-size: 18px; }
+  #login .err { color: var(--danger); font-size: 13px; min-height: 1em; margin: 0; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header class="hidden" id="topbar">
+  <h1>Real Estate Book Logger</h1>
+  <span id="who" class="count"></span>
+  <button id="exportBtn">Export CSV</button>
+  <button id="logoutBtn">Log out</button>
+</header>
+
+<form id="login">
+  <h2>Dashboard login</h2>
+  <input id="email" type="email" placeholder="Email" autocomplete="username" required>
+  <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+  <p class="err" id="loginErr"></p>
+  <button class="primary" type="submit">Sign in</button>
+</form>
+
+<main class="hidden" id="app">
+  <div class="filters" id="filters"></div>
+  <div class="count" id="count"></div>
+  <div class="tablewrap"><table>
+    <thead><tr id="headRow"></tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+</main>
+
+<script src="/static/dashboard.js"></script>
+</body>
+</html>
