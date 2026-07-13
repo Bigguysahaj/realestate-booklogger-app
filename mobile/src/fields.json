@@ -1,0 +1,23 @@
+[
+  { "name": "property_type", "label": "Property type", "type": "select",
+    "options": ["Plot", "Independent house", "Builder floor", "Flat", "Commercial"], "personal": false },
+  { "name": "address", "label": "Address", "type": "text", "personal": false },
+  { "name": "area_sqyd", "label": "Area (sq. yd)", "type": "number", "personal": false },
+  { "name": "floors", "label": "Number of floors", "type": "number", "personal": false },
+  { "name": "facing", "label": "Facing", "type": "select",
+    "options": ["North", "South", "East", "West", "NE", "NW", "SE", "SW"], "personal": false },
+  { "name": "construction_status", "label": "Construction status", "type": "select",
+    "options": ["Vacant plot", "Under construction", "Ready"], "personal": false },
+  { "name": "title_type", "label": "Title type", "type": "select",
+    "options": ["Freehold", "Leasehold", "GPA"], "personal": false },
+  { "name": "colony_status", "label": "Colony status", "type": "select",
+    "options": ["Authorized", "Unauthorized", "Regularised", "Lal Dora"], "personal": false },
+  { "name": "owner_name", "label": "Owner name", "type": "text", "personal": true },
+  { "name": "owner_phone", "label": "Owner phone", "type": "text", "personal": true },
+  { "name": "occupancy", "label": "Occupancy", "type": "select",
+    "options": ["Owner-occupied", "Tenant", "Vacant"], "personal": false },
+  { "name": "willing_to_sell", "label": "Willing to sell?", "type": "select",
+    "options": ["Yes", "No", "Maybe"], "personal": true },
+  { "name": "expected_price", "label": "Expected price (₹)", "type": "number", "personal": true },
+  { "name": "notes", "label": "Notes", "type": "text", "multiline": true, "personal": false }
+]
